@@ -1,37 +1,50 @@
-// Variables
+//  VARIABLES
+var randomLetterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            
+var playerwins = 0;
+var playerlosses = 0;
+var remainguesses = 15;
+var guessmade = [];
 
-var compChoices = ["a", "b", "c","d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n","o","p","q","r", "s", "t", "u", "v", "w", "x", "y", "z"]
-// var compGuess = compChoices[randomLetter];
-var wins = 0;
-var losses = 0;
-var guessesLeft = 10;
-var guessSoFar = [];
-
-document.onkeyup = function(event){
-
-var userGuess = event.key;
-var compGuess = compChoices[Math.floor(Math.random() * 26)];
-
-
-
-// wins
-if (userGuess == compChoices){
-    console.log(userGuess);
-    console.log(wins);
-    wins++;
-//losses
-} else if (userGuess != compChoices){
-    // console.log(compChoices);
-    // console.log(losses);
-    losses++;
+//  FUNCTION
+document.onkeyup = function(event) {
+    
+    var userinput = event.key;
+// COMPUTERS CHOICE OF LETTER   
+    var answer = randomLetterArr[Math.floor(Math.random() * 26)];
+// USERS WINS BASED ON INPUT
+   if (userinput == answer) {
+    playerwins++;
+    
 }
+// USER LOSSES & GUESSES LEFT
+    else if (userinput != answer) {
+    remainguesses--;
+    guessmade.push(userinput);
+    playerlosses++;
+    }
+// RESETS FOR WINS & LOSSES
+    if(playerwins === 15) {
+        location.reload();
 
+    }  else if (playerlosses === 15) {
+        location.reload();
+    }
+    
+    //DOM
 
-// DOM - connect to html
+    var playerwinsDiv = document.getElementById("win");
+    playerwinsDiv.textContent = playerwins;
+    
+    var playerlossesDiv = 
+    document.getElementById("loss");
+    playerlossesDiv.textContent = playerlosses;
 
-var userScoreDiv = document.getElementById('wins');
-userScoreDiv.textContent = wins;
+    var remainguessesDiv = 
+    document.getElementById("left"); 
+    remainguesses.textContent = remainguesses;
 
-var compScoreDiv = document.getElementById('losses');
-compScoreDiv.textContent = losses;
-};
+    var guessmadeDiv =
+    document.getElementById("guess");
+    guessmadeDiv.textContent = guessmade;
+    }

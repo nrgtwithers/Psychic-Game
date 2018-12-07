@@ -1,7 +1,23 @@
 html, body{
-    background-color: grey;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
     color: black;
-    text-align: center;
 }
+
+#game{
+    background-color: grey;
+    border-style: solid;
+    border-color:black;
+    text-align: center;
+    width: 500px;
+    margin-top: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+h1{
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
