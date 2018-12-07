@@ -6,6 +6,11 @@ var playerlosses = 0;
 var remainguesses = 15;
 var guessmade = [];
 
+// WARNING
+    alert ("I'd like to play a game...");
+    alert ("You only have 15 chances to win or lose...");
+    
+
 //  FUNCTION
 document.onkeyup = function(event) {
     
@@ -24,10 +29,10 @@ document.onkeyup = function(event) {
     playerlosses++;
     }
 // RESETS FOR WINS & LOSSES
-    if(playerwins === 15) {
+    if(playerlosses === 15) {
         location.reload();
 
-    }  else if (playerlosses === 15) {
+    }  else if   (playerwins === 15) {
         location.reload();
     }
     
@@ -42,7 +47,7 @@ document.onkeyup = function(event) {
 
     var remainguessesDiv = 
     document.getElementById("left"); 
-    remainguesses.textContent = remainguesses;
+    remainguessesDiv.textContent = remainguesses;
 
     var guessmadeDiv =
     document.getElementById("guess");
